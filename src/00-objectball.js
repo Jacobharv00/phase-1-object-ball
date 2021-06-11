@@ -1,3 +1,6 @@
+const game = gameObject()
+const teams = Object.values(game)
+
 function gameObject(){
     return {
         home: {
@@ -117,112 +120,47 @@ function gameObject(){
     
 }
 
-
-//Complete
-const numPointsScored = (name) => {
-    let game = gameObject()
-    if (game['home']['players'].hasOwnProperty(name)) {
-        return game['home']['players'][name]['points']
-    } else if (game['away']['players'].hasOwnProperty(name)) {
-        return game['away']['players'][name]['points']
-    } else {
-        return 'No such player'
-    }
+const homeTeam = () => {
+  return gameObject().home
 }
- 
-// Complete
+
+const awayTeam = () => {
+  return gameObject().away
+}
+
+const players = () => {
+  return Object.assign ({}, homeTeam().players, awayTeam().players)
+}
+
+const numPointsScored = (playerInput) => {
+   return players()[playerInput].points
+}
+console.log('Ben Gordon points:', numPointsScored('Ben Gordon')) 
+
 const teamNames = () => {
-    let teams = gameObject()
-    return [`Home:${teams.home.teamName}, Away: ${teams.away.teamName}`]
+  return teams.map(team => team.teamName)
 }
 
-
-//Complete
 const teamColors = (teamName) => {
-    let teams = gameObject()
-    if (teamName === teams.home.teamName){
-        return teams['home'].colors
-    } else if (teamName === teams.away.teamName){
-        return teams['away'].colors
-    } else {
-        return "Team not playing"
-    }
+   return findTeamName(teamName).colors
 }
 
-//Still working on! First way that doesn't work
-// funciton needs to takes in a argument of a teamName and returns an array of the jersey numbers for that team.
-// jerseyNumberArray = []
-// const playerNumbers = (obj) => {
-//     jerseyNumberArray.push(obj.number)
-//     if(!obj.players) {
-//         return 
-//     }
-//     obj.players.forEach(player => playerNumbers(player))
-// }
-// playerNumbers(gameObject)
-// console.log(jerseyNumberArray)
-
-
-// Still Working on!
-const playerNumbers = () => {
-    let game = gameObject() // This = {home: {}, away: {}}
-
-    for (let teamName in game) {
-        let teamObj = game[teamName]
-        debugger
-        for (let teamName in teamObj) {
-            let data = teamObj[teamName]
-    
-
-            for (let players in data) {
-                console.log(data[players])
-                debugger
-               
-            }
-        }
-    }
-    
+const findTeamName = (teamName) => {
+  return teams.find(team => teamName === team.teamName)
 }
-console.log(playerNumbers('Charlotte Hornets'))
 
-
-
-// Reference Function from advanced-debug
-// function goodPractices() {
-//     let game = gameObject()
-
-//     for (let gameKey in game) {
-//      let teamObj = game[gameKey]
-
-//     for (let teamKey in teamObj) {
-//          let data = teamObj.player
-
-//      for (let key in data) {
-//          
-//         }
-//       }
-//     }
-//   }
-  
-//   goodPractices()
-  
-  
-
-// Still working on!
-const playerStats = () => {
-    let game = gameObject()
-    for(const key in game) {
-        if (typeof game[key] === 'object') {
-            for (const nestedKey in game[key]) {
-                if (game[key][nestedKey] === 'object') {
-                    for (const deepNestedKey in game[key][nestedKey]) {
-                      
-                    }
-                }
-            }
-        }
-    }
+const shoeSize = (playerInput) => {
+  return players()[playerInput].shoe
 }
+console.log('Jeff Adrien shoe size:', shoeSize('Jeff Adrien'))
+
+
+
+
+
+
+
+
 
 
 
