@@ -119,48 +119,56 @@ function gameObject(){
     } 
     
 }
-
+// Home Team
 const homeTeam = () => {
   return gameObject().home
 }
-
+// Away Team
 const awayTeam = () => {
   return gameObject().away
 }
-
+// Both Teams
 const players = () => {
   return Object.assign ({}, homeTeam().players, awayTeam().players)
 }
-
+// Takes in an argument of a player's name and returns the number of points scored for that player.
 const numPointsScored = (playerInput) => {
    return players()[playerInput].points
 }
-console.log('Ben Gordon points:', numPointsScored('Ben Gordon')) 
 
+// Operates on the game object to return an array of the team names.
 const teamNames = () => {
   return teams.map(team => team.teamName)
 }
-
+// Takes in an argument of the team name and returns an array of that teams colors.
 const teamColors = (teamName) => {
    return findTeamName(teamName).colors
 }
-
+// Finds the team name that is passed as the argument.
 const findTeamName = (teamName) => {
   return teams.find(team => teamName === team.teamName)
 }
-
+// Finds the players shoe size based on the player name that is passed as the argument
 const shoeSize = (playerInput) => {
   return players()[playerInput].shoe
 }
-console.log('Jeff Adrien shoe size:', shoeSize('Jeff Adrien'))
+
+// Takes in a argument of a players name and returns a object of that players stats. 
+const playerStats = (playerInput) => {
+    return players()[playerInput]
+}
+
+// Takes in an argument of a team name and returns an array of the jersey number's for that team.
+const playerNumbers = (playerInput) => {
+    // Still trying to figure this code block out!
+}
+
+
+console.log(teamColors('Brookyln Nets'))
 
 
 
 
-
-
-
-
-
+// Teams: 'Brookyln Nets'  <=======> 'Charlotte Hornets'
 
 
