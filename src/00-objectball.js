@@ -1,6 +1,7 @@
 const game = gameObject()
 const teams = Object.values(game)
 
+
 function gameObject(){
     return {
         home: {
@@ -133,7 +134,7 @@ const players = () => {
 }
 // Takes in an argument of a player's name and returns the number of points scored for that player.
 const numPointsScored = (playerInput) => {
-   return players()[playerInput].points
+  return players()[playerInput].points
 }
 
 // Operates on the game object to return an array of the team names.
@@ -142,7 +143,7 @@ const teamNames = () => {
 }
 // Takes in an argument of the team name and returns an array of that teams colors.
 const teamColors = (teamName) => {
-   return findTeamName(teamName).colors
+  return findTeamName(teamName).colors
 }
 // Finds the team name that is passed as the argument.
 const findTeamName = (teamName) => {
@@ -155,16 +156,17 @@ const shoeSize = (playerInput) => {
 
 // Takes in a argument of a players name and returns a object of that players stats. 
 const playerStats = (playerInput) => {
-    return players()[playerInput]
+  return players()[playerInput]
 }
 
 // Takes in an argument of a team name and returns an array of the jersey number's for that team.
-const playerNumbers = (playerInput) => {
-    // Still trying to figure this code block out!
-}
+// function playerNumbers(teamName) {
+
+// }
 
 
-console.log(teamColors('Brookyln Nets'))
+
+console.log('Ben Gordon points', (numPointsScored('Ben Gordon')))
 
 
 
